@@ -39,3 +39,14 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    testAssemblyVer2: '$(Build.SourcesDirectory)/test**.js'
+    
+ - task: CopyFiles@2
+  inputs:
+    contents: '**/*.*'
+    targetFolder: $(build.artifactStagingDirectory)
+    
+ - task: PublishBuildArtifacts@1
+  inputs:
+    artifactName: 'MobEAD'
+    pathToPublish: 'd:\a\1\a'
